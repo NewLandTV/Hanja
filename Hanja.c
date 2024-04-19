@@ -5,7 +5,7 @@
 #include <Windows.h>
 
 // Hanja datas and type of problem.
-#define HANJA_COUNT 150
+#define HANJA_COUNT 225
 #define PROBLEM_TYPE_COUNT 2
 
 // Macro functions
