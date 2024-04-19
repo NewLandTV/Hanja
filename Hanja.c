@@ -15,7 +15,7 @@
 typedef struct _Hanja
 {
 	char data[3];
-	char pronunciation[3];
+	char pronunciation[11];
 } Hanja;
 
 // Data
@@ -27,7 +27,7 @@ Hanja hanja[HANJA_COUNT] =
 	{ "Îú", "±¸" },
 	{ "ÏÐ", "±¹" },
 	{ "ÏÚ", "±º" },
-	{ "ÑÑ", "±Ý" },
+	{ "ÑÑ", "±Ý, ±è" },
 	{ "Ñõ", "³²" },
 	{ "Ò³", "³à" },
 	{ "Ò´", "³â" },
@@ -41,7 +41,7 @@ Hanja hanja[HANJA_COUNT] =
 	{ "ÚÅ", "¹Î" },
 	{ "ÛÜ", "¹é" },
 	{ "Ý«", "ºÎ" },
-	{ "ÝÁ", "ºÏ" },
+	{ "ÝÁ", "ºÏ, ¹è" },
 	{ "ÞÌ", "»ç" },
 	{ "ß£", "»ê" },
 	{ "ß²", "»ï" },
@@ -77,7 +77,7 @@ Hanja hanja[HANJA_COUNT] =
 	{ "Ê«", "°¡" },
 	{ "Êà", "°£" },
 	{ "Ë°", "°­" },
-	{ "ó³", "Â÷" },
+	{ "ó³", "°Å, Â÷" },
 	{ "Íï", "°ø" },
 	{ "Íö", "°ø" },
 	{ "Ñ¨", "±â" },
@@ -130,7 +130,7 @@ Hanja hanja[HANJA_COUNT] =
 	{ "Ï¢", "±¸" },
 	{ "Ðý", "±â" },
 	{ "ÔÒ", "µ¿" },
-	{ "Ô×", "µ¿" },
+	{ "Ô×", "µ¿, Åë" },
 	{ "ÔÏ", "µ¿" },
 	{ "Ôô", "µî" },
 	{ "ÕÎ", "·¡" },
@@ -172,7 +172,7 @@ Hanja hanja[HANJA_COUNT] =
 	{ "õÕ", "Ãß" },
 	{ "õð", "Ãá" },
 	{ "õó", "Ãâ" },
-	{ "øµ", "Æí" },
+	{ "øµ", "Æí, º¯" },
 	{ "ù¾", "ÇÏ" },
 	{ "ü£", "È­" },
 	{ "ýÌ", "ÈÞ" },
@@ -197,10 +197,10 @@ Hanja hanja[HANJA_COUNT] =
 	{ "ÓÛ", "´ë" },
 	{ "Óß", "´ë" },
 	{ "Óñ", "µµ" },
-	{ "ÔÁ", "µ¶" },
+	{ "ÔÁ", "µ¶, µÎ" },
 	{ "ÔÛ", "µ¿" },
 	{ "Ôõ", "µî" },
-	{ "äÅ", "¶ô" },
+	{ "äÅ", "¶ô, ¾Ç, ¿ä" },
 	{ "××", "¸®" },
 	{ "×â", "¸®" },
 	{ "Ù¥", "¸í" },
@@ -217,7 +217,7 @@ Hanja hanja[HANJA_COUNT] =
 	{ "àÊ", "¼±" },
 	{ "àä", "¼³" },
 	{ "à÷", "¼º" },
-	{ "àý", "¼º" },
+	{ "àý", "¼º, »ý" },
 	{ "á¼", "¼Ò" },
 	{ "âú", "¼ú" },
 	{ "ã·", "½Ã" },
@@ -262,8 +262,14 @@ unsigned long long score;
 void Init();
 void DrawTitle();
 void DrawScore();
+
+// Problems
 void Problem1();
 void Problem2();
+
+// Hanja data functions
+int CheckAnswer(char* answer, char* input);
+int GetPronunciation(int index, int pronunciationIndex, char* out);
 
 int main(void)
 {
@@ -326,6 +332,8 @@ void DrawTitle()
 	fputs("¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥", stdout);
 	Gotoxy(16, 10);
 	fputs("- PRESS ANY KEY TO START -", stdout);
+	Gotoxy(1, 28);
+	fputs("v0.4.0", stdout);
 	Gotoxy(0, 0);
 }
 
@@ -339,23 +347,48 @@ void DrawScore()
 // Problems
 void Problem1()
 {
-	int index = rand() % HANJA_COUNT;
+	int i;
+	int pr;
+	int index=5;//int index = rand() % HANJA_COUNT;
 	char input[3];
+	char output[3];
 	
-	// Show and Input
 	fputs("ó­ªÎùÓí®ªÎëåÔÁªòßöª¤ªÆª¯ªÀªµª¤¡£\n", stdout);
 	fputs(hanja[index].data, stdout);
 	fputc('\n', stdout);
 	scanf("%s", input);
 	
-	// Check answer.
-	if (strcmp(input, hanja[index].pronunciation) == 0)
+	// Check answer
+	pr = GetPronunciation(index, 0, output);
+	i = 0;
+	
+	if (pr == 2)
 	{
-		score++;
+		if (CheckAnswer(output, input))
+		{
+			return;
+		}
 		
-		fputs("ïáÓÍ!\n", stdout);
+		fputs("è¦ÓÍ!\n", stdout);
 		
 		return;
+	}
+	
+	while (1)
+	{
+		pr = GetPronunciation(index, i, output);
+		
+		if (pr == 0)
+		{
+			break;
+		}
+		
+		if (CheckAnswer(output, input))
+		{
+			return;
+		}
+		
+		i++;
 	}
 	
 	fputs("è¦ÓÍ!\n", stdout);
@@ -364,8 +397,10 @@ void Problem1()
 void Problem2()
 {
 	int i, j;
+	int pr;
 	int index = -1;
 	int input;
+	char output[3];
 	
 	Hanja list[4];
 	
@@ -406,15 +441,85 @@ void Problem2()
 	
 	scanf("%d", &input);
 	
-	// Check answer.
-	if (strcmp(list[input - 1].pronunciation, hanja[index].pronunciation) == 0)
+	// Check answer
+	pr = GetPronunciation(index, 0, output);
+	i = 0;
+	
+	if (pr == 2)
 	{
-		score++;
+		if (CheckAnswer(output, list[input - 1].pronunciation))
+		{
+			return;
+		}
 		
-		fputs("ïáÓÍ!\n", stdout);
+		fputs("è¦ÓÍ!\n", stdout);
 		
 		return;
 	}
 	
+	while (1)
+	{
+		pr = GetPronunciation(index, i, output);
+		
+		if (pr == 0)
+		{
+			break;
+		}
+		
+		if (CheckAnswer(output, list[input - 1].pronunciation))
+		{
+			return;
+		}
+		
+		i++;
+	}
+	
 	fputs("è¦ÓÍ!\n", stdout);
+}
+
+// Hanja data functions
+int CheckAnswer(char* answer, char* input)
+{
+	if (strcmp(answer, input) != 0)
+	{
+		return 0;
+	}
+	
+	score++;
+	
+	fputs("ïáÓÍ!\n", stdout);
+	
+	return 1;
+}
+
+int GetPronunciation(int index, int pronunciationIndex, char* out)
+{
+	Hanja ptr = hanja[index];
+	
+	int i;
+	char* temp;
+	
+	// Only one pronunciation.
+	if (strlen(ptr.pronunciation) <= 3)
+	{
+		strcpy(out, ptr.pronunciation);
+		
+		return 2;
+	}
+	
+	temp = strtok(ptr.pronunciation, ", ");
+	
+	for (i = 0; i < pronunciationIndex; i++)
+	{
+		temp = strtok(NULL, ", ");
+	}
+	
+	if (strcmp(out, temp) == 0)
+	{
+		return 0;
+	}
+	
+	strcpy(out, temp);
+	
+	return 1;
 }
