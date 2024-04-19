@@ -349,7 +349,7 @@ void Problem1()
 {
 	int i;
 	int pr;
-	int index=5;//int index = rand() % HANJA_COUNT;
+	int index = rand() % HANJA_COUNT;
 	char input[3];
 	char output[3];
 	
