@@ -10,7 +10,7 @@ All Chinese characters are based on the Chinese characters assigned in the Natio
 
 모든 한자는 한국어문회에서 주관하는 한자검정시험인 전국한자능력검정시험의 배정한자를 기준으로 합니다.
 
-> 2024년 4월 16일에 배포된 v0.3.0을 기준으로 총 **150자**가 출제됩니다.
+> 2024年 4月 21日에 配布된 v0.4.0을 基準으로 총 **225자**가 出題됩니다.
 
 ## 8及 50字
 
@@ -29,6 +29,13 @@ All Chinese characters are based on the Chinese characters assigned in the Natio
 歌口旗同洞冬登來老里林面命文問百夫算色夕
 少所數植心語然有育邑入字祖住主重紙地千天
 川草村秋春出便夏花休
+
+## 6及II 75字
+
+各角界計高公共功果科光球今急短堂代對圖讀
+童等樂利理明聞半反班發放部分社書線雪成省
+消術始身神信新弱藥業勇用運音飮意作昨才戰
+庭第題注集窓淸體表風幸現形和會
 
 # **Links(링크)**
 
