@@ -437,7 +437,6 @@ void Problem1()
 	
 	// Check answer
 	pr = GetPronunciation(index, 0, output);
-	i = 0;
 	
 	if (pr == 2)
 	{
@@ -451,7 +450,7 @@ void Problem1()
 		return;
 	}
 	
-	while (1)
+	for (i = 0; ; i++)
 	{
 		pr = GetPronunciation(index, i, output);
 		
@@ -464,8 +463,6 @@ void Problem1()
 		{
 			return;
 		}
-		
-		i++;
 	}
 	
 	fputs("Х╕см!\n", stdout);
@@ -496,7 +493,7 @@ void Problem2()
 		
 		for (j = 0; j < i; j++)
 		{
-			if (strcmp(list[i].pronunciation, list[j].pronunciation) == 0)
+			if (strcmp(list[i].data, list[j].data) == 0)
 			{
 				j--;
 				list[j] = hanja[rand() % HANJA_COUNT - 1];
@@ -589,11 +586,11 @@ int GetPronunciation(int index, int pronunciationIndex, char* out)
 	for (i = 0; i < pronunciationIndex; i++)
 	{
 		temp = strtok(NULL, ", ");
-	}
-	
-	if (strcmp(out, temp) == 0)
-	{
-		return 0;
+		
+		if (temp == NULL)
+		{
+			return 0;
+		}
 	}
 	
 	strcpy(out, temp);
