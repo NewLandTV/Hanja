@@ -14,7 +14,7 @@
 typedef struct _Hanja
 {
 	char data[3];
-	char pronunciation[11];
+	char pronunciation[15];
 } Hanja;
 
 // Functions
