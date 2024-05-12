@@ -10,7 +10,7 @@ All Chinese characters are based on the Chinese characters assigned in the Natio
 
 모든 한자는 한국어문회에서 주관하는 한자검정시험인 전국한자능력검정시험의 배정한자를 기준으로 합니다.
 
-> 2024年 4月 25日에 配布된 v0.6.0을 基準으로 총 **400字**가 出題됩니다.
+> 2024年 4月 25日에 配布된 v0.7.0을 基準으로 총 **500字**가 出題됩니다.
 
 ## 8及 50字
 
