@@ -2,21 +2,7 @@
 #include <time.h>
 #include <string.h>
 #include <stdlib.h>
-#include <Windows.h>
-
-// Hanja datas and type of problem.
-#define HANJA_COUNT 400
-#define PROBLEM_TYPE_COUNT 2
-
-// Macro functions
-#define Gotoxy(x, y) SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), (COORD){ x, y })
-
-// Structures
-typedef struct _Hanja
-{
-	char data[3];
-	char pronunciation[11];
-} Hanja;
+#include "Hanja.h"
 
 // Data
 Hanja hanja[HANJA_COUNT] =
@@ -256,7 +242,7 @@ Hanja hanja[HANJA_COUNT] =
 	
 	// 6級漢字 
 	{ "感", "감" },
-	{ "強", "강" },
+	{ "?", "강" },
 	{ "開", "개" },
 	{ "京", "경" },
 	{ "古", "고" },
@@ -282,7 +268,7 @@ Hanja hanja[HANJA_COUNT] =
 	{ "朴", "박" },
 	{ "番", "번" },
 	{ "別", "별" },
-	{ "病 ", "병" },
+	{ "病", "병" },
 	{ "服", "복" },
 	{ "本", "본" },
 	{ "使", "사" },
@@ -299,7 +285,7 @@ Hanja hanja[HANJA_COUNT] =
 	{ "愛", "애" },
 	{ "夜", "야" },
 	{ "野", "야" },
-	{ "陽 ", "양" },
+	{ "陽", "양" },
 	{ "洋", "양" },
 	{ "言", "언" },
 	{ "英", "영" },
@@ -431,56 +417,113 @@ Hanja hanja[HANJA_COUNT] =
 	{ "害", "해" },
 	{ "化", "화" },
 	{ "效", "효" },
-	{ "凶", "흉" }
+	{ "凶", "흉" },
+
+	// 5級漢字 
+	{ "加", "가" },
+	{ "可", "가" },
+	{ "改", "개" },
+	{ "擧", "거" },
+	{ "去", "거" },
+	{ "件", "건" },
+	{ "建", "건" },
+	{ "健", "건" },
+	{ "輕", "경" },
+	{ "競", "경" },
+	{ "景", "경" },
+	{ "考", "고" },
+	{ "固", "고" },
+	{ "曲", "곡" },
+	{ "橋", "교" },
+	{ "救", "구" },
+	{ "貴", "귀" },
+	{ "規", "규" },
+	{ "給", "급" },
+	{ "汽", "기" },
+	{ "期", "기" },
+	{ "技", "기" },
+	{ "吉", "길" },
+	{ "壇", "단" },
+	{ "談", "담" },
+	{ "都", "도" },
+	{ "島", "도" },
+	{ "落", "락" },
+	{ "冷", "랭" },
+	{ "量", "량" },
+	{ "領", "령" },
+	{ "令", "령" },
+	{ "料", "료" },
+	{ "馬", "마" },
+	{ "末", "말" },
+	{ "亡", "망" },
+	{ "買", "매" },
+	{ "賣", "매" },
+	{ "無", "무" },
+	{ "倍", "배" },
+	{ "比", "비" },
+	{ "費", "비" },
+	{ "鼻", "비" },
+	{ "氷", "빙" },
+	{ "寫", "사" },
+	{ "思", "사" },
+	{ "査", "사" },
+	{ "賞", "상" },
+	{ "序", "서" },
+	{ "善", "선" },
+	{ "選", "선" },
+	{ "船", "선" },
+	{ "示", "시" },
+	{ "案", "안" },
+	{ "漁", "어" },
+	{ "魚", "어" },
+	{ "億", "억" },
+	{ "熱", "열" },
+	{ "葉", "옆" },
+	{ "屋", "옥" },
+	{ "完", "완" },
+	{ "曜", "요" },
+	{ "浴", "욕" },
+	{ "牛", "우" },
+	{ "雄", "웅" },
+	{ "原", "원" },
+	{ "院", "원" },
+	{ "願", "원" },
+	{ "位", "위" },
+	{ "耳", "이" },
+	{ "因", "인" },
+	{ "災", "재" },
+	{ "再", "재" },
+	{ "爭", "쟁" },
+	{ "貯", "저" },
+	{ "赤", "적" },
+	{ "停", "정" },
+	{ "操", "조" },
+	{ "終", "종" },
+	{ "罪", "죄" },
+	{ "止", "지" },
+	{ "唱", "창" },
+	{ "鐵", "철" },
+	{ "初", "초" },
+	{ "最", "최" },
+	{ "祝", "축" },
+	{ "致", "치" },
+	{ "則", "칙" },
+	{ "他", "타" },
+	{ "打", "타" },
+	{ "卓", "탁" },
+	{ "炭", "탄" },
+	{ "板", "판" },
+	{ "敗", "패" },
+	{ "河", "하" },
+	{ "寒", "한" },
+	{ "許", "허" },
+	{ "湖", "호" },
+	{ "患", "환" },
+	{ "黑", "흑" }
 };
 
 // To display the number of problems you have answered.
 unsigned long long score;
-
-// Functions
-void Init();
-void DrawTitle();
-void DrawScore();
-
-// Problems
-void Problem1();
-void Problem2();
-
-// Hanja data functions
-int CheckAnswer(char* answer, char* input);
-int GetPronunciation(int index, int pronunciationIndex, char* out);
-
-int main(void)
-{
-	int i;
-	
-	Init();
-	DrawTitle();
-	
-	while (getchar() != 27)
-	{
-		system("cls");
-		DrawScore();
-		
-		i = rand() % PROBLEM_TYPE_COUNT;
-		
-		switch (i)
-		{
-		case 0:
-			Problem1();
-			
-			break;
-		case 1:
-			Problem2();
-			
-			break;
-		}
-		
-		Sleep(1000);
-	}
-	
-	return 0;
-}
 
 void Init()
 {
@@ -512,7 +555,7 @@ void DrawTitle()
 	Gotoxy(16, 10);
 	fputs("- PRESS ANY KEY TO START -", stdout);
 	Gotoxy(1, 28);
-	fputs("v0.6.0", stdout);
+	fputs("v0.7.0", stdout);
 	Gotoxy(0, 0);
 }
 
@@ -530,7 +573,7 @@ void Problem1()
 	int pr;
 	int index = rand() % HANJA_COUNT;
 	char input[3];
-	char output[3];
+	char output[15];
 	
 	fputs("次の漢字の音讀を書いてください。\n", stdout);
 	fputs(hanja[index].data, stdout);
@@ -576,7 +619,7 @@ void Problem2()
 	int pr;
 	int index = -1;
 	int input;
-	char output[3];
+	char output[15];
 	
 	Hanja list[4];
 	
