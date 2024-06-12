@@ -38,7 +38,7 @@ void DrawTitle()
 	Gotoxy(16, 10);
 	fputs("- PRESS ANY KEY TO START -", stdout);
 	Gotoxy(1, 28);
-	fputs("v0.8.0", stdout);
+	fputs("v0.8.1", stdout);
 	Gotoxy(0, 0);
 }
 
