@@ -10,7 +10,7 @@ All Chinese characters are based on the Chinese characters assigned in the Natio
 
 모든 한자는 한국어문회에서 주관하는 한자검정시험인 전국한자능력검정시험의 배정한자를 기준으로 합니다.
 
-> 2024年 5月 15日에 配布된 v0.8.0을 基準으로 총 **750字**가 出題됩니다.
+> 2024年 6月 12日에 配布된 v0.8.1을 基準으로 총 **1000字**가 出題됩니다.
 
 ## 8及 50字
 
@@ -76,9 +76,25 @@ All Chinese characters are based on the Chinese characters assigned in the Natio
 波破砲包布暴票豊限航港解鄕香虛驗賢血協惠
 好戶護呼貨確回吸興希
 
+## 4及 250字
+
+暇刻覺簡看干甘敢甲降拒居據巨傑儉擊激堅犬
+驚更傾鏡階鷄季系繼戒孤庫穀困骨孔攻管鑛構
+君群屈窮券勸卷歸均劇勤筋機寄奇紀納段徒盜
+逃亂卵覽略糧慮烈龍柳輪離妹勉鳴模墓妙舞拍
+髮妨犯範辯普伏複否負粉憤批祕碑辭私絲射散
+傷象宣舌屬損頌松秀叔肅崇氏額樣嚴與域易燃
+鉛緣延迎映營豫優遇郵怨援源圍委威慰危遊乳
+儒遺隱依儀疑異仁資姿姉殘雜獎裝腸張壯帳底
+積籍適績賊專轉錢折點占靜丁整帝條潮組存鍾
+從座酒朱周證持智誌織珍盡陣差讚採冊泉聽廳
+招推縮就趣層寢針稱歎彈脫探擇討痛投鬪派判
+篇評閉胞爆標疲避閑恨抗核憲險革顯刑或婚混
+紅華歡環況灰厚候揮喜
+
 # **Links(링크)**
 
-* [JkhTV YouTube(장경혁tv)](https://www.youtube.com/@NewLand2019-JkhTV)
+* [JkhTV YouTube(장경혁tv)](https://www.youtube.com/channel/UC0lR1aYGgOhFioC3IsazUtw)
 * [NewLand Cafe(New랜드 카페)](https://cafe.naver.com/2019newland)
 * [NewLand Discord(New랜드 디스코드)](https://discord.gg/2J646MaZGA)
 * [JkhTV Tistory(장경혁tv의 티스토리)](https://jkhtv.tistory.com)

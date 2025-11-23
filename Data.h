@@ -1,9 +1,7 @@
-#include <stdio.h>
-#include <time.h>
-#include <string.h>
-#include <stdlib.h>
+#ifndef __DATA_H__
+#define __DATA_H__
+
 #include "Hanja.h"
-#include "Data.h"
 
 // Data
 Hanja hanja[HANJA_COUNT] =
@@ -534,7 +532,7 @@ Hanja hanja[HANJA_COUNT] =
 	{ "潔", "결" },
 	{ "缺", "결" },
 	{ "境", "경" },
-	{ "經", "경" },
+	{ "經", "결" },
 	{ "警", "경" },
 	{ "慶", "경" },
 	{ "係", "계" },
@@ -559,7 +557,7 @@ Hanja hanja[HANJA_COUNT] =
 	{ "端", "단" },
 	{ "達", "달" },
 	{ "擔", "담" },
-	{ "黨", "당" },
+	{ "黨", "담" },
 	{ "帶", "대" },
 	{ "隊", "대" },
 	{ "導", "도" },
@@ -668,12 +666,12 @@ Hanja hanja[HANJA_COUNT] =
 	{ "榮", "영" },
 	{ "藝", "예" },
 	{ "誤", "오" },
-	{ "玉", "옥" },
+	{ "玉", "오" },
 	{ "往", "왕" },
 	{ "謠", "요" },
 	{ "容", "용" },
 	{ "圓", "원" },
-	{ "員", "인" },
+	{ "員", "원" },
 	{ "衛", "위" },
 	{ "爲", "위" },
 	{ "肉", "육" },
@@ -772,226 +770,259 @@ Hanja hanja[HANJA_COUNT] =
 	{ "回", "회" },
 	{ "吸", "흡" },
 	{ "興", "흥" },
-	{ "希", "희" }
+	{ "希", "희" },
+
+	// 4級漢字 
+	{ "暇", "가" },
+	{ "刻", "각" },
+	{ "覺", "각" },
+	{ "簡", "간" },
+	{ "看", "간" },
+	{ "干", "간" },
+	{ "甘", "감" },
+	{ "敢", "감" },
+	{ "甲", "갑" },
+	{ "降", "강, 항" },
+	{ "拒", "거" },
+	{ "居", "거" },
+	{ "據", "거" },
+	{ "巨", "거" },
+	{ "傑", "걸" },
+	{ "儉", "검" },
+	{ "擊", "격" },
+	{ "激", "격" },
+	{ "堅", "견" },
+	{ "犬", "견" },
+	{ "驚", "경" },
+	{ "更", "경, 갱" },
+	{ "傾", "경" },
+	{ "鏡", "경" },
+	{ "階", "계" },
+	{ "鷄", "계" },
+	{ "季", "계" },
+	{ "系", "계" },
+	{ "繼", "계" },
+	{ "戒", "계" },
+	{ "孤", "고" },
+	{ "庫", "고" },
+	{ "穀", "곡" },
+	{ "困", "곤" },
+	{ "骨", "골" },
+	{ "孔", "공" },
+	{ "攻", "공" },
+	{ "管", "관" },
+	{ "鑛", "광" },
+	{ "構", "구" },
+	{ "君", "군" },
+	{ "群", "군" },
+	{ "屈", "굴" },
+	{ "窮", "궁" },
+	{ "券", "권" },
+	{ "勸", "권" },
+	{ "卷", "권" },
+	{ "歸", "귀" },
+	{ "均", "균" },
+	{ "劇", "극" },
+	{ "勤", "근" },
+	{ "筋", "근" },
+	{ "機", "기" },
+	{ "寄", "기" },
+	{ "奇", "기" },
+	{ "紀", "기" },
+	{ "納", "납" },
+	{ "段", "단" },
+	{ "徒", "도" },
+	{ "盜", "도" },
+	{ "逃", "도" },
+	{ "亂", "란" },
+	{ "卵", "란" },
+	{ "覽", "람" },
+	{ "略", "략" },
+	{ "糧", "량" },
+	{ "慮", "려" },
+	{ "烈", "렬" },
+	{ "龍", "룡" },
+	{ "柳", "류" },
+	{ "輪", "륜" },
+	{ "離", "리" },
+	{ "妹", "매" },
+	{ "勉", "면" },
+	{ "鳴", "명" },
+	{ "模", "모" },
+	{ "墓", "묘" },
+	{ "妙", "묘" },
+	{ "舞", "무" },
+	{ "拍", "박" },
+	{ "髮", "발" },
+	{ "妨", "방" },
+	{ "犯", "범" },
+	{ "範", "범" },
+	{ "辯", "변" },
+	{ "普", "보" },
+	{ "伏", "복" },
+	{ "複", "복" },
+	{ "否", "부" },
+	{ "負", "부" },
+	{ "粉", "분" },
+	{ "憤", "분" },
+	{ "批", "비" },
+	{ "祕", "비" },
+	{ "碑", "비" },
+	{ "辭", "사" },
+	{ "私", "사" },
+	{ "絲", "사" },
+	{ "射", "사" },
+	{ "散", "산" },
+	{ "傷", "상" },
+	{ "象", "상" },
+	{ "宣", "선" },
+	{ "舌", "설" },
+	{ "屬", "속" },
+	{ "損", "손" },
+	{ "頌", "송" },
+	{ "松", "송" },
+	{ "秀", "수" },
+	{ "叔", "숙" },
+	{ "肅", "숙" },
+	{ "崇", "숭" },
+	{ "氏", "씨" },
+	{ "額", "액" },
+	{ "樣", "양" },
+	{ "嚴", "엄" },
+	{ "與", "여" },
+	{ "域", "역" },
+	{ "易", "역, 이" },
+	{ "燃", "연" },
+	{ "鉛", "연" },
+	{ "緣", "연" },
+	{ "延", "연" },
+	{ "迎", "영" },
+	{ "映", "영" },
+	{ "營", "영" },
+	{ "豫", "예" },
+	{ "優", "우" },
+	{ "遇", "우" },
+	{ "郵", "우" },
+	{ "怨", "원" },
+	{ "援", "원" },
+	{ "源", "원" },
+	{ "圍", "위" },
+	{ "委", "위" },
+	{ "威", "위" },
+	{ "慰", "위" },
+	{ "危", "위" },
+	{ "遊", "유" },
+	{ "乳", "유" },
+	{ "儒", "유" },
+	{ "遺", "유" },
+	{ "隱", "은" },
+	{ "依", "은" },
+	{ "儀", "의" },
+	{ "疑", "의" },
+	{ "異", "이" },
+	{ "仁", "인" },
+	{ "資", "자" },
+	{ "姿", "자" },
+	{ "姉", "자" },
+	{ "殘", "잔" },
+	{ "雜", "잡" },
+	{ "獎", "장" },
+	{ "裝", "장" },
+	{ "腸", "장" },
+	{ "張", "장" },
+	{ "壯", "장" },
+	{ "帳", "장" },
+	{ "底", "저" },
+	{ "積", "적" },
+	{ "籍", "적" },
+	{ "適", "적" },
+	{ "績", "적" },
+	{ "賊", "적" },
+	{ "專", "전" },
+	{ "轉", "전" },
+	{ "錢", "전" },
+	{ "折", "절" },
+	{ "點", "점" },
+	{ "占", "점" },
+	{ "靜", "정" },
+	{ "丁", "정" },
+	{ "整", "정" },
+	{ "帝", "제" },
+	{ "條", "조" },
+	{ "潮", "조" },
+	{ "組", "조" },
+	{ "存", "존" },
+	{ "鍾", "종" },
+	{ "從", "종" },
+	{ "座", "좌" },
+	{ "酒", "주" },
+	{ "朱", "주" },
+	{ "周", "주" },
+	{ "證", "증" },
+	{ "持", "지" },
+	{ "智", "지" },
+	{ "誌", "지" },
+	{ "織", "직" },
+	{ "珍", "진" },
+	{ "盡", "진" },
+	{ "陣", "진" },
+	{ "差", "차" },
+	{ "讚", "찬" },
+	{ "採", "채" },
+	{ "冊", "책" },
+	{ "泉", "천" },
+	{ "聽", "청" },
+	{ "廳", "청" },
+	{ "招", "초" },
+	{ "推", "추" },
+	{ "縮", "축" },
+	{ "就", "취" },
+	{ "趣", "취" },
+	{ "層", "층" },
+	{ "寢", "침" },
+	{ "針", "침" },
+	{ "稱", "칭" },
+	{ "歎", "탄" },
+	{ "彈", "탄" },
+	{ "脫", "탈" },
+	{ "探", "탐" },
+	{ "擇", "택" },
+	{ "討", "토" },
+	{ "痛", "통" },
+	{ "投", "투" },
+	{ "鬪", "투" },
+	{ "派", "파" },
+	{ "判", "판" },
+	{ "篇", "편" },
+	{ "評", "평" },
+	{ "閉", "폐" },
+	{ "胞", "포" },
+	{ "爆", "폭" },
+	{ "標", "표" },
+	{ "疲", "피" },
+	{ "避", "피" },
+	{ "閑", "한" },
+	{ "恨", "한" },
+	{ "抗", "항" },
+	{ "核", "핵" },
+	{ "憲", "헌" },
+	{ "險", "험" },
+	{ "革", "혁" },
+	{ "顯", "현" },
+	{ "刑", "형" },
+	{ "或", "혹" },
+	{ "婚", "혼" },
+	{ "混", "혼" },
+	{ "紅", "홍" },
+	{ "華", "화" },
+	{ "歡", "환" },
+	{ "環", "환" },
+	{ "況", "황" },
+	{ "灰", "회" },
+	{ "厚", "후" },
+	{ "候", "후" },
+	{ "揮", "휘" },
+	{ "喜", "희" }
 };
 
-// To display the number of problems you have answered.
-unsigned long long score;
-
-void Init()
-{
-	srand((unsigned int)time(0));
-	
-	// Setup console
-	system("title 漢字");
-	system("mode con cols=60 lines=30");
-	
-	// Hide console cursor
-	CONSOLE_CURSOR_INFO consoleCursorInfo;
-	
-	consoleCursorInfo.bVisible = 0;
-	consoleCursorInfo.dwSize = 1;
-	
-	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &consoleCursorInfo);
-}
-
-void DrawTitle()
-{
-	Gotoxy(23, 1);
-	fputs("┌──────────┐", stdout);
-	Gotoxy(23, 2);
-	fputs("│   漢字   │", stdout);
-	Gotoxy(23, 3);
-	fputs("│   試驗   │", stdout);
-	Gotoxy(23, 4);
-	fputs("└──────────┘", stdout);
-	Gotoxy(16, 10);
-	fputs("- PRESS ANY KEY TO START -", stdout);
-	Gotoxy(1, 28);
-	fputs("v0.8.1", stdout);
-	Gotoxy(0, 0);
-}
-
-void DrawScore()
-{
-	Gotoxy(32, 1);
-	fprintf(stdout, "SCORE : %llu", score);
-	Gotoxy(0, 2);
-}
-
-// Problems
-void Problem1()
-{
-	int i;
-	int pr;
-	int index = rand() % HANJA_COUNT;
-	char input[3];
-	char output[15];
-	
-	fputs("次の漢字の音讀を書いてください。\n", stdout);
-	fputs(hanja[index].data, stdout);
-	fputc('\n', stdout);
-	scanf("%s", input);
-	
-	// Check answer
-	pr = GetPronunciation(index, 0, output);
-	
-	if (pr == 2)
-	{
-		if (CheckAnswer(output, input))
-		{
-			return;
-		}
-		
-		fputs("誤答!\n", stdout);
-		
-		return;
-	}
-	
-	for (i = 0; ; i++)
-	{
-		pr = GetPronunciation(index, i, output);
-		
-		if (pr == 0)
-		{
-			break;
-		}
-		
-		if (CheckAnswer(output, input))
-		{
-			return;
-		}
-	}
-	
-	fputs("誤答!\n", stdout);
-}
-
-void Problem2()
-{
-	int i, j;
-	int pr;
-	int index = -1;
-	int input;
-	char output[15];
-	
-	Hanja list[4];
-	
-	// Choice 4 hanjas to display on the screen.
-	for (i = 0; i < 4; i++)
-	{
-		if (rand() & 1 && index == -1)
-		{
-			index = rand() % HANJA_COUNT - 1;
-			list[i] = hanja[index];
-		}
-		else
-		{
-			list[i] = hanja[rand() % HANJA_COUNT - 1];
-		}
-		
-		for (j = 0; j < i; j++)
-		{
-			if (strcmp(list[i].data, list[j].data) == 0)
-			{
-				j--;
-				list[j] = hanja[rand() % HANJA_COUNT - 1];
-				
-				continue;
-			}
-		}
-	}
-	
-	// Show and Input
-	fputs("次の漢字の音讀に最も良いものを1 から4の中から一つ選んでください。\n", stdout);
-	fputs(hanja[index].data, stdout);
-	fputc('\n', stdout);
-	
-	for (i = 0; i < 4; i++)
-	{
-		fprintf(stdout, "%d. %s\n", i + 1, list[i].pronunciation);
-	}
-	
-	scanf("%d", &input);
-	
-	// Check answer
-	pr = GetPronunciation(index, 0, output);
-	i = 0;
-	
-	if (pr == 2)
-	{
-		if (CheckAnswer(output, list[input - 1].pronunciation))
-		{
-			return;
-		}
-		
-		fputs("誤答!\n", stdout);
-		
-		return;
-	}
-	
-	while (1)
-	{
-		pr = GetPronunciation(index, i, output);
-		
-		if (pr == 0)
-		{
-			break;
-		}
-		
-		if (CheckAnswer(output, list[input - 1].pronunciation))
-		{
-			return;
-		}
-		
-		i++;
-	}
-	
-	fputs("誤答!\n", stdout);
-}
-
-// Hanja data functions
-int CheckAnswer(char* answer, char* input)
-{
-	if (strcmp(answer, input) != 0)
-	{
-		return 0;
-	}
-	
-	score++;
-	
-	fputs("正答!\n", stdout);
-	
-	return 1;
-}
-
-int GetPronunciation(int index, int pronunciationIndex, char* out)
-{
-	Hanja ptr = hanja[index];
-	
-	int i;
-	char* temp;
-	
-	// Only one pronunciation.
-	if (strlen(ptr.pronunciation) <= 3)
-	{
-		strcpy(out, ptr.pronunciation);
-		
-		return 2;
-	}
-	
-	temp = strtok(ptr.pronunciation, ", ");
-	
-	for (i = 0; i < pronunciationIndex; i++)
-	{
-		temp = strtok(NULL, ", ");
-		
-		if (temp == NULL)
-		{
-			return 0;
-		}
-	}
-	
-	strcpy(out, temp);
-	
-	return 1;
-}
+#endif
