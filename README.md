@@ -4,6 +4,8 @@ Chinese characters are motto characters currently used in the Chinese character 
 
 한자는 현재의 중국, 대만, 일본, 대한민국, 북한, 베트남, 싱가포르, 말레이시아 등지의 한자문화권에서 사용되고 있는 표어문자입니다.
 
+[Playlist(재생목록)](https://www.youtube.com/playlist?list=PLG6918Ng_f9telYVQdsyZP-wVu-3RoLxC)
+
 # **Assigned Hanja(배정한자)**
 
 All Chinese characters are based on the Chinese characters assigned in the National Chinese Character Proficiency Test, which is a Chinese character certification test hosted by the Korean Language and Literature Association.
